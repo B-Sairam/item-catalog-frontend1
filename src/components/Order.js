@@ -20,7 +20,9 @@ const Order = () => {
         let respon = await axios.get(`${BASE_URL}getorders`)
           let data = await respon.data.message;
           let order = await data.filter((e)=>e.users===user.message.email)
+          console.log(order);
           setOrders(order)
+          
           
       } catch (error) {
         

@@ -97,7 +97,9 @@ const ProductDetail = () => {
       }else{
         setbuyProduct(e)
          setPop(true)
-         setPrice(buyProduct.offprice*quantity+50)
+         let calc = parseInt(buyProduct.offprice) *parseInt(quantity) +50;
+         
+         setPrice(calc);
       }
     }
     function addCart(item){
@@ -114,7 +116,8 @@ const ProductDetail = () => {
           sizes:size,
           ratings:item.ratings,
           img:item.img,
-          _id:item._id
+          _id:item._id,
+           total:buyProduct.offprice*quantity+50
          }
         cartIteam.push(data)
         localStorage.setItem('cart',JSON.stringify(cartIteam));
@@ -180,7 +183,7 @@ const ProductDetail = () => {
        <select style={{outline:"none",paddingTop:"4px"}} onChange={(e)=>setQuantity(e.target.value)}>
              <option value="1" selected>1</option> 
              <option value="2">2</option>
-             <option value="2">3</option>
+             <option value="3">3</option>
              <option value="4">4</option>
 
            </select></h2>
